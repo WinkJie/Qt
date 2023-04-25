@@ -1,0 +1,40 @@
+﻿#ifndef SERVERWIDGET_H
+#define SERVERWIDGET_H
+
+#include <QWidget>
+#include <QtNetwork/QTcpServer>
+#include <QtNetwork/QTcpSocket>
+#include <QTextEdit>
+
+namespace Ui {
+class ServerWidget;
+}
+
+class ServerWidget : public QWidget
+{
+    Q_OBJECT
+
+public:
+    explicit ServerWidget(QWidget *parent = nullptr);
+    ~ServerWidget();
+
+
+
+private slots:
+    void on_buttonSend_clicked();
+    void on_buttonClose_clicked();
+
+
+
+private:
+    Ui::ServerWidget *ui;
+
+    QTcpServer *tcpServer; //监听套接字
+
+    QTcpSocket *tcpSocket; //通信套接字
+
+    QTextEdit *textEditRead;
+    QTextEdit *textEditWrite;
+};
+
+#endif // SERVERWIDGET_H

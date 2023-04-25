@@ -1,0 +1,1 @@
+﻿#include "QToolTipsNew.h"
