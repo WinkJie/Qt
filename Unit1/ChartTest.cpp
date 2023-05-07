@@ -7,12 +7,20 @@ ChartTest::ChartTest(QWidget *parent)
     m_chart = new QChart;
     graphicsView = new QChartView(this);
     QHBoxLayout *tail = new QHBoxLayout();
-    QPushButton *btn0 = new QPushButton(tr("第一"));
-    QPushButton *btn1 = new QPushButton(tr("12"));
-    QPushButton *btn2 = new QPushButton(tr("22"));
-    QPushButton *btn3 = new QPushButton(tr("32"));
-    QPushButton *btn4 = new QPushButton(tr("42"));
-    QPushButton *btn5 = new QPushButton(tr("52"));
+
+    QPushButton *btn0 =  new QPushButton(tr("折线图"));
+    QPushButton *btn1 =  new QPushButton(tr("曲线图"));
+    QPushButton *btn2 =  new QPushButton(tr("散点图"));
+    QPushButton *btn3 =  new QPushButton(tr("饼状图"));
+    QPushButton *btn4 =  new QPushButton(tr("盒状图"));
+    QPushButton *btn5 =  new QPushButton(tr("面积图"));
+    QPushButton *btn6 =  new QPushButton(tr("百分比柱状图"));
+    QPushButton *btn7 =  new QPushButton(tr("堆叠图柱状图"));
+    QPushButton *btn8 =  new QPushButton(tr("横向堆叠图柱状图"));
+    QPushButton *btn9 =  new QPushButton(tr("横向百分比柱状图"));
+    QPushButton *btn10 = new QPushButton(tr("柱状图"));
+    QPushButton *btn11 = new QPushButton(tr("横向柱状图"));
+
     tail->addStretch(2);
     tail->addWidget(btn0);
     tail->addWidget(btn1);
@@ -20,23 +28,79 @@ ChartTest::ChartTest(QWidget *parent)
     tail->addWidget(btn3);
     tail->addWidget(btn4);
     tail->addWidget(btn5);
+    tail->addWidget(btn6);
+    tail->addWidget(btn7);
+    tail->addWidget(btn8);
+    tail->addWidget(btn9);
+    tail->addWidget(btn10);
+    tail->addWidget(btn11);
     tail->addStretch(2);
     QVBoxLayout *la = new QVBoxLayout(this);
     la->addLayout(tail,1);
     la->addWidget(graphicsView,11);
 
-    LineSeriesChart();
-//    SplineSeriesChart();
-//    ScatterSeriesChart();
-//    PieSeriesChart();
-//    BoxPlotSeriesChart();
-//    AreaSeriesChart();
-//    PercentBarSeriesChart();
-//    StackedBarSeriesChart();
-//    HorizontalStackedBarSeriesChart();
-//    HorizontalPercentBarSeriesChart();
-//    BarSeriesChart();
-//    HorizontalBarSeries();
+
+    connect(btn0,&QPushButton::clicked,this,[=](){
+        m_chart->removeAllSeries();
+        LineSeriesChart();
+    });
+    connect(btn1,&QPushButton::clicked,this,[=](){
+        m_chart->removeAllSeries();
+        SplineSeriesChart();
+    });
+    connect(btn2,&QPushButton::clicked,this,[=](){
+        m_chart->removeAllSeries();
+        ScatterSeriesChart();
+    });
+    connect(btn3,&QPushButton::clicked,this,[=](){
+        m_chart->removeAllSeries();
+        PieSeriesChart();
+    });
+    connect(btn4,&QPushButton::clicked,this,[=](){
+        m_chart->removeAllSeries();
+        BoxPlotSeriesChart();
+    });
+    connect(btn5,&QPushButton::clicked,this,[=](){
+        m_chart->removeAllSeries();
+        AreaSeriesChart();
+    });
+    connect(btn6,&QPushButton::clicked,this,[=](){
+        m_chart->removeAllSeries();
+        PercentBarSeriesChart();
+    });
+    connect(btn7,&QPushButton::clicked,this,[=](){
+        m_chart->removeAllSeries();
+        StackedBarSeriesChart();
+    });
+    connect(btn8,&QPushButton::clicked,this,[=](){
+        m_chart->removeAllSeries();
+        HorizontalStackedBarSeriesChart();
+    });
+    connect(btn9,&QPushButton::clicked,this,[=](){
+        m_chart->removeAllSeries();
+        HorizontalPercentBarSeriesChart();
+    });
+    connect(btn10,&QPushButton::clicked,this,[=](){
+        m_chart->removeAllSeries();
+        BarSeriesChart();
+    });
+    connect(btn11,&QPushButton::clicked,this,[=](){
+        m_chart->removeAllSeries();
+        HorizontalBarSeries();
+    });
+
+    //    LineSeriesChart();
+    //    SplineSeriesChart();
+    //    ScatterSeriesChart();
+    //    PieSeriesChart();
+    //    BoxPlotSeriesChart();
+    //    AreaSeriesChart();
+    //    PercentBarSeriesChart();
+    //    StackedBarSeriesChart();
+    //    HorizontalStackedBarSeriesChart();
+    //    HorizontalPercentBarSeriesChart();
+    //    BarSeriesChart();
+    //    HorizontalBarSeries();
 
     setLayout(la);
     resize(800,600);
@@ -166,6 +230,7 @@ void ChartTest::PieSeriesChart()
     m_pieSeries->slices().at(2)->setColor(QColor(0, 0, 255, 255));
 
     m_chart->addSeries(m_pieSeries);
+
     graphicsView->setChart(m_chart);
     graphicsView->setRenderHint(QPainter::Antialiasing); // 反走样
 }
