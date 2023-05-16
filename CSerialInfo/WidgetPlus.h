@@ -9,6 +9,8 @@
 #include "CCustomMessageBox.h"
 #include "CustomMessage.h"
 
+#include "PainterTest.h"
+
 class WidgetPlus : public QWidget
 {
 public:   

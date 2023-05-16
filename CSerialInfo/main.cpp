@@ -4,6 +4,7 @@
 #include "form.h"
 #include "WidgetPlus.h"
 #include "Widget.h"
+#include "PainterTest.h"
 
 
 
@@ -12,6 +13,7 @@ int main(int argc, char *argv[])
     QApplication a(argc, argv);
     //qApp->setStyleSheet("QToolTip{border: 0px solid black;background:red;border-radius: 15px 5px 25px;}");
     WidgetPlus w;
+
 
 //    w.setProperty("enabled",false);
 //    qDebug()<<w.isEnabled()<<endl;

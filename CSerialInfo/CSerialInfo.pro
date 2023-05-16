@@ -34,7 +34,8 @@ SOURCES += \
     mygraphicrectitem.cpp \
     Widget.cpp \
     WidgetPlus.cpp \
-    CustomMessage.cpp
+    CustomMessage.cpp \
+    PainterTest.cpp
 
 HEADERS += \
         CSerialInfo.h \
@@ -45,7 +46,8 @@ HEADERS += \
     mygraphicrectitem.h \
     Widget.h \
     WidgetPlus.h \
-    CustomMessage.h
+    CustomMessage.h \
+    PainterTest.h
 
 
 #INCLUDEPATH += D:\opencv\opencv\opencv-build\install\include\opencv2 \

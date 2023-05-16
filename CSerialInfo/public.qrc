@@ -1,7 +1,6 @@
 <RCC>
     <qresource prefix="/new/prefix1">
         <file>StyleSheet.qss</file>
-        <file>1.jpg</file>
         <file>51.png</file>
         <file>2.jpg</file>
         <file>3.jpg</file>

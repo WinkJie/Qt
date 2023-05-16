@@ -36,6 +36,9 @@ void WidgetPlus::setLayout1()
     layout->addWidget(btn);
     a->resize(btn->size());
 
+    PainterTest *paint=new PainterTest(this);
+    layout->addWidget(paint);
+
     connect(btn,&QPushButton::clicked,this,[=](){
         qDebug()<<"进入成功"<<endl;
         CustomMessage msgBox(this, MsgBoxType_Error,"警告信息");
