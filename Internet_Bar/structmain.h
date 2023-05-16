@@ -14,7 +14,7 @@
 #include <string>
 #include <sstream>
 #include <ctime>
-#include <Windows.h>
+//#include <Windows.h>
 #include <io.h>
 #include <iostream>
 #include <direct.h>
@@ -78,8 +78,8 @@ public:
     {
         if (m_bEnabled)
         {
-            m_tOLogFile << GetTimeStr() << value;
-            cout << GetTimeStr() << ":" << value << endl;
+            m_tOLogFile << GetTimeStr().c_str() << value;
+            cout << GetTimeStr().c_str() << ":" << value << endl;
         }
         return (*this);
     }

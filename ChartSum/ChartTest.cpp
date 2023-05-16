@@ -4,6 +4,7 @@
 ChartTest::ChartTest(QWidget *parent)
     : QWidget(parent)
 {
+    setWindowTitle(QString::fromStdString("Chart应用"));
     m_chart = new QChart;
     graphicsView = new QChartView(this);
     QHBoxLayout *tail = new QHBoxLayout();
