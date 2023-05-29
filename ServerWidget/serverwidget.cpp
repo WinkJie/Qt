@@ -1,11 +1,23 @@
 ﻿#include "serverwidget.h"
 #include "ui_serverwidget.h"
 
+
+
+#define theUi (static_cast<Ui::ServerWidget*> ui)
+#define theui ((Ui::ServerWidget*)(ui))
+#define mini(a,b) {return a>b?b:a;}
+
+
+
 ServerWidget::ServerWidget(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::ServerWidget)
 {
-    ui->setupUi(this);
+    theui->setupUi(this);
+    theUi->setupUi(this);
+//    ui->setupUi(this);
+
+    theUi->groupBox->setParent(this);
 
     textEditRead = new QTextEdit(this);
     textEditWrite = new QTextEdit(this);
